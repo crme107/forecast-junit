@@ -15,14 +15,19 @@ import static org.example.junitcleancode.Utility.QueryDatabase.queryAllWeather;
 public class Main {
     public static void main(String[] args) throws IOException {
         resetDatabase();
-        System.out.println("Database reset was successful");
         importCsvFileIntoDatabase();
-        System.out.println("Data was imported successfully from csv.\n");
 
+        printForecast();
+        printWeatherLeaderboard();
+    }
+
+    private static void printForecast() {
         List<Forecast> forecastList = queryCompleteForecastFromDatabase();
         System.out.println("[ Entire available forecast ]\n");
         forecastList.forEach(Forecast::printNiceForecast);
+    }
 
+    private static void printWeatherLeaderboard() {
         List<Weather> weatherList = queryAllWeather();
         WeatherRanker.rankWeather(weatherList);
     }

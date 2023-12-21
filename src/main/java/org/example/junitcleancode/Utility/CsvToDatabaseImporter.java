@@ -31,6 +31,8 @@ public class CsvToDatabaseImporter {
             insertCsvIntoForecast(row);
             insertCsvIntoWeather(row);
         });
+
+        System.out.println("Data was imported successfully from csv.\n");
     }
 
     private static void insertCsvIntoForecast(List<String> row) {
@@ -97,6 +99,8 @@ public class CsvToDatabaseImporter {
 
             PreparedStatement forecastStatement = connection.prepareStatement(DELETE_FROM_FORECAST);
             forecastStatement.executeUpdate();
+
+            System.out.println("Database reset was successful");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
