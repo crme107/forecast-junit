@@ -5,37 +5,37 @@ import org.example.junitcleancode.Utility.Range;
 
 public class WeatherValidatorImpl implements WeatherValidator {
     public boolean isValidWindSpeed(int windSpeed) {
-        final int WIND_SPEED_BASELINE = 0;
-        final int WIND_SPEED_THRESHOLD = 10;
+        final int windSpeedBaseline = 0;
+        final int windSpeedThreshold = 10;
 
-        return Range.valueInRange(windSpeed, WIND_SPEED_BASELINE, WIND_SPEED_THRESHOLD);
+        return Range.valueInRange(windSpeed, windSpeedBaseline, windSpeedThreshold);
     }
 
     public boolean isValidTemperature(int temperature) {
-        final int TEMPERATURE_BASELINE = -15;
-        final int TEMPERATURE_THRESHOLD = 50;
+        final int temperatureBaseline = -15;
+        final int temperatureThreshold = 50;
 
-        return Range.valueInRange(temperature, TEMPERATURE_BASELINE, TEMPERATURE_THRESHOLD);
+        return Range.valueInRange(temperature, temperatureBaseline, temperatureThreshold);
     }
 
     public boolean isValidCloudsPercentage(int cloudsPercentage) {
-        final int CLOUDS_PERCENTAGE_BASELINE = 0;
-        final int CLOUDS_PERCENTAGE_THRESHOLD = 100;
+        final int cloudsPercentageBaseline = 0;
+        final int cloudsPercentageThreshold = 100;
 
-        return Range.valueInRange(cloudsPercentage, CLOUDS_PERCENTAGE_BASELINE, CLOUDS_PERCENTAGE_THRESHOLD);
+        return Range.valueInRange(cloudsPercentage, cloudsPercentageBaseline, cloudsPercentageThreshold);
     }
 
     public boolean isValidPressure(int pressure) {
-        final int PRESSURE_BASELINE = 990;
-        final int PRESSURE_THRESHOLD = 1030;
+        final int pressureBaseline = 990;
+        final int pressureThreshold = 1030;
 
-        return Range.valueInRange(pressure, PRESSURE_BASELINE, PRESSURE_THRESHOLD);
+        return Range.valueInRange(pressure, pressureBaseline, pressureThreshold);
     }
 
     public boolean isValidVisibility(long visibility) {
-        final int VISIBILITY_BASELINE = 0;
-        final int VISIBILITY_THRESHOLD = 50000;
+        final int visibilityBaseline = 0;
+        final int visibilityThreshold = 50000;
 
-        return Range.valueInRange((int) visibility, VISIBILITY_BASELINE, VISIBILITY_THRESHOLD);
+        return Range.valueInRange((int) visibility, visibilityBaseline, visibilityThreshold);
     }
 }

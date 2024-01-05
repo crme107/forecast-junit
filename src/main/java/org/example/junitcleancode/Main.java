@@ -17,6 +17,9 @@ public class Main {
         resetDatabase();
         importCsvFileIntoDatabase();
 
+        Forecast forecast = new Forecast();
+        System.out.println(forecast);
+
         printForecast();
         printWeatherLeaderboard();
     }

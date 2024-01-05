@@ -7,19 +7,19 @@ import static org.example.junitcleancode.Utility.Range.valueInRange;
 public class ComfortLevelCalculatorImpl implements ComfortLevelCalculator {
     @Override
     public int calculateWindComfortLevel(int windSpeed) {
-        final int WIND_BASELINE = 0;
-        final int CALM_BREEZE_THRESHOLD = 4;
-        final int LIGHT_BREEZE_THRESHOLD = 7;
-        final int MODERATE_BREEZE_THRESHOLD = 9;
-        final int STRONG_BREEZE_THRESHOLD = 11;
+        final int windBaseline = 0;
+        final int calmBreezeThreshold = 4;
+        final int lightBreezeThreshold = 7;
+        final int moderateBreezeThreshold = 9;
+        final int strongBreezeThreshold = 11;
 
-        if (valueInRange(windSpeed, WIND_BASELINE, CALM_BREEZE_THRESHOLD)) {
+        if (valueInRange(windSpeed, windBaseline, calmBreezeThreshold)) {
             return 4;
-        } else if (windSpeed < LIGHT_BREEZE_THRESHOLD) {
+        } else if (windSpeed < lightBreezeThreshold) {
             return 3;
-        } else if (windSpeed < MODERATE_BREEZE_THRESHOLD) {
+        } else if (windSpeed < moderateBreezeThreshold) {
             return 2;
-        } else if (windSpeed < STRONG_BREEZE_THRESHOLD) {
+        } else if (windSpeed < strongBreezeThreshold) {
             return 1;
         } else {
             return 0;
@@ -28,17 +28,17 @@ public class ComfortLevelCalculatorImpl implements ComfortLevelCalculator {
 
     @Override
     public int calculateTemperatureComfortLevel(int temperature) {
-        final int PERFECT_TEMPERATURE = 25;
-        final int COMFORTABLE_TEMPERATURE_BASELINE = 15;
-        final int COMFORTABLE_TEMPERATURE_THRESHOLD = 35;
-        final int CHILLY_TEMPERATURE_BASELINE = 5;
-        final int CHILLY_TEMPERATURE_THRESHOLD = 14;
+        final int perfectTemperature = 25;
+        final int comfortableTemperatureBaseline = 15;
+        final int comfortableTemperatureThreshold = 35;
+        final int chillyTemperatureBaseline = 5;
+        final int chillyTemperatureThreshold = 14;
 
-        if (temperature == PERFECT_TEMPERATURE) {
+        if (temperature == perfectTemperature) {
             return 4;
-        } else if (valueInRange(temperature, COMFORTABLE_TEMPERATURE_BASELINE, COMFORTABLE_TEMPERATURE_THRESHOLD)) {
+        } else if (valueInRange(temperature, comfortableTemperatureBaseline, comfortableTemperatureThreshold)) {
             return 3;
-        } else if (valueInRange(temperature, CHILLY_TEMPERATURE_BASELINE, CHILLY_TEMPERATURE_THRESHOLD)) {
+        } else if (valueInRange(temperature, chillyTemperatureBaseline, chillyTemperatureThreshold)) {
             return 2;
         } else {
             return 1;
@@ -47,16 +47,16 @@ public class ComfortLevelCalculatorImpl implements ComfortLevelCalculator {
 
     @Override
     public int calculateCloudsComfortLevel(int cloudPercentage) {
-        final int CLOUDS_BASELINE = 0;
-        final int LOW_CLOUDS_THRESHOLD = 25;
-        final int MEDIUM_CLOUDS_THRESHOLD = 50;
-        final int HIGH_CLOUDS_THRESHOLD = 75;
+        final int cloudsBaseline = 0;
+        final int lowCloudsThreshold = 25;
+        final int mediumCloudsThreshold = 50;
+        final int highCloudsThreshold = 75;
 
-        if (valueInRange(cloudPercentage, CLOUDS_BASELINE, LOW_CLOUDS_THRESHOLD)) {
+        if (valueInRange(cloudPercentage, cloudsBaseline, lowCloudsThreshold)) {
             return 3;
-        } else if (cloudPercentage <= MEDIUM_CLOUDS_THRESHOLD) {
+        } else if (cloudPercentage <= mediumCloudsThreshold) {
             return 2;
-        } else if (cloudPercentage <= HIGH_CLOUDS_THRESHOLD) {
+        } else if (cloudPercentage <= highCloudsThreshold) {
             return 1;
         } else {
             return 0;
@@ -65,14 +65,14 @@ public class ComfortLevelCalculatorImpl implements ComfortLevelCalculator {
 
     @Override
     public int calculateWeatherComboComfortLevel(boolean isRaining, int cloudPercentage, int windSpeed) {
-        final int NO_CLOUDS = 0;
-        final int NO_WIND = 0;
+        final int noClouds = 0;
+        final int noWind = 0;
 
         if (isRaining) {
             return 1;
-        } else if (cloudPercentage == NO_CLOUDS && windSpeed != NO_WIND) {
+        } else if (cloudPercentage == noClouds && windSpeed != noWind) {
             return 2;
-        } else if (cloudPercentage == NO_CLOUDS) {
+        } else if (cloudPercentage == noClouds) {
             return 3;
         } else {
             return 0;

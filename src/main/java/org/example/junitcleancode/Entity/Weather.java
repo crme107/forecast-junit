@@ -48,17 +48,19 @@ public class Weather {
     }
 
     public boolean isGoodForWalking() {
-        final int TEMPERATURE_BASELINE = 15;
-        final int TEMPERATURE_THRESHOLD = 30;
-        final int WIND_SPEED_BASELINE = 0;
-        final int WIND_SPEED_THRESHOLD = 3;
-        final int CLOUD_PERCENTAGE_BASELINE = 0;
-        final int CLOUD_PERCENTAGE_THRESHOLD = 50;
+        final int temperatureBaseline = 15;
+        final int temperatureThreshold = 30;
+
+        final int windSpeedBaseline = 0;
+        final int windSpeedThreshold = 3;
+
+        final int cloudPercentageBaseline = 0;
+        final int cloudPercentageThreshold = 50;
 
         if (!isRaining) {
-            boolean temperatureIsInRange = valueInRange(temperature, TEMPERATURE_BASELINE, TEMPERATURE_THRESHOLD);
-            boolean cloudPercentageIsInRange = valueInRange(cloudsPercentage, CLOUD_PERCENTAGE_BASELINE, CLOUD_PERCENTAGE_THRESHOLD);
-            boolean windSpeedIsInRange = valueInRange(windSpeed, WIND_SPEED_BASELINE, WIND_SPEED_THRESHOLD);
+            boolean temperatureIsInRange = valueInRange(temperature, temperatureBaseline, temperatureThreshold);
+            boolean cloudPercentageIsInRange = valueInRange(cloudsPercentage, cloudPercentageBaseline, cloudPercentageThreshold);
+            boolean windSpeedIsInRange = valueInRange(windSpeed, windSpeedBaseline, windSpeedThreshold);
 
             return temperatureIsInRange && cloudPercentageIsInRange && windSpeedIsInRange;
         } else {
@@ -67,19 +69,19 @@ public class Weather {
     }
 
     public boolean isGoodForSwimming() {
-        final int TEMPERATURE_BASELINE = 25;
-        final int TEMPERATURE_THRESHOLD = 30;
+        final int temperatureBaseline = 25;
+        final int temperatureThreshold = 30;
 
-        final int WIND_SPEED_BASELINE = 0;
-        final int WIND_SPEED_THRESHOLD = 4;
+        final int windSpeedBaseline = 0;
+        final int windSpeedThreshold = 4;
 
-        final int CLOUDS_PERCENTAGE_BASELINE = 0;
-        final int CLOUDS_PERCENTAGE_THRESHOLD = 30;
+        final int cloudsPercentageBaseline = 0;
+        final int cloudsPercentageThreshold = 30;
 
         if (!isRaining && isValidWeather()) {
-            boolean isWindSpeedGood = valueInRange(windSpeed, WIND_SPEED_BASELINE, WIND_SPEED_THRESHOLD);
-            boolean areCloudsGood = valueInRange(cloudsPercentage, CLOUDS_PERCENTAGE_BASELINE, CLOUDS_PERCENTAGE_THRESHOLD);
-            boolean isTemperatureGood = valueInRange(temperature, TEMPERATURE_BASELINE, TEMPERATURE_THRESHOLD);
+            boolean isWindSpeedGood = valueInRange(windSpeed, windSpeedBaseline, windSpeedThreshold);
+            boolean areCloudsGood = valueInRange(cloudsPercentage, cloudsPercentageBaseline, cloudsPercentageThreshold);
+            boolean isTemperatureGood = valueInRange(temperature, temperatureBaseline, temperatureThreshold);
 
             return isWindSpeedGood && areCloudsGood && isTemperatureGood;
         } else {
